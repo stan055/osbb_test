@@ -18,7 +18,7 @@ class RootScreen extends StatefulWidget {
 }
 
 class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
-  var _tabController = 2;
+  var _tabController = 0;
   late List<Widget> screensTab;
 
   @override
