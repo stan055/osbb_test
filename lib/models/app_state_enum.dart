@@ -1,9 +1,0 @@
-enum ApplicationStateEnum {
-  MOBILE_FORM,
-  OTP_FORM,
-  USER_INFO_FORM,
-  LOADING,
-  LOGGEDIN,
-  LOGGEDOUT,
-  LOGO
-}
