@@ -60,45 +60,6 @@ class AppUser {
         'messageToken': messageToken,
       };
 
-  static DateTime? toDateTime(Timestamp? value) {
-    if (value == null) return null;
-
-    return value.toDate();
-  }
-
-  static dynamic fromDateTimeToJson(DateTime? date) {
-    if (date == null) return null;
-
-    return date.toUtc();
-  }
-
-  AppUser copyWith(
-          {String? uid,
-          String? phoneNumber,
-          String? firstName,
-          String? lastName,
-          String? roomNumber,
-          String? urlAvatar,
-          Role? role,
-          Timestamp? lastMessageTime,
-          Timestamp? lastOpenTime,
-          Timestamp? lastSeenTime,
-          Timestamp? createdTime,
-          String? messageToken}) =>
-      AppUser(
-          uid: uid ?? this.uid,
-          phoneNumber: phoneNumber ?? this.phoneNumber,
-          firstName: firstName ?? this.firstName,
-          lastName: lastName ?? this.lastName,
-          roomNumber: roomNumber ?? this.roomNumber,
-          urlAvatar: urlAvatar ?? this.urlAvatar,
-          role: role ?? this.role,
-          lastMessageTime: lastMessageTime ?? this.lastMessageTime,
-          lastOpenTime: lastOpenTime ?? this.lastOpenTime,
-          lastSeenTime: lastSeenTime ?? this.lastSeenTime,
-          createdTime: createdTime ?? this.createdTime,
-          messageToken: messageToken ?? this.messageToken);
-
   @override
   String toString() {
     return toJson().toString();

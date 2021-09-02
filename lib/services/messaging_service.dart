@@ -45,13 +45,7 @@ class MessagingService {
     });
 
     final address = '${serverAddress}sendMulticast';
-    return http.post(
-      Uri.parse(address),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: message,
-    );
+    return sendPost(address, message);
   }
 
   static Future<http.Response> send(
@@ -65,13 +59,7 @@ class MessagingService {
     });
 
     final address = '${serverAddress}send';
-    return http.post(
-      Uri.parse(address),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: message,
-    );
+    return sendPost(address, message);
   }
 
   static Future<http.Response> topic(
@@ -85,16 +73,10 @@ class MessagingService {
     });
 
     final address = '${serverAddress}send';
-    return http.post(
-      Uri.parse(address),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: message,
-    );
+    return sendPost(address, message);
   }
 
-  static Future sendToDevice(
+  static Future<http.Response> sendToDevice(
       {required String serverAddress,
       required List<String?> tokens,
       required String title,
@@ -109,6 +91,10 @@ class MessagingService {
     });
 
     final address = '${serverAddress}sendToDevice';
+    return sendPost(address, message);
+  }
+
+  static Future<http.Response> sendPost(String address, String message) {
     return http.post(
       Uri.parse(address),
       headers: <String, String>{
